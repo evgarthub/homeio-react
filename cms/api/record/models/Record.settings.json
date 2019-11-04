@@ -1,0 +1,26 @@
+{
+  "connection": "default",
+  "collectionName": "records",
+  "info": {
+    "name": "record",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "comment": ""
+  },
+  "attributes": {
+    "value": {
+      "type": "float",
+      "required": true
+    },
+    "date": {
+      "type": "date"
+    },
+    "type": {
+      "model": "type",
+      "via": "records"
+    }
+  }
+}

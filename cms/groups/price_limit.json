@@ -1,0 +1,16 @@
+{
+  "info": {
+    "name": "PriceLimit",
+    "description": ""
+  },
+  "connection": "default",
+  "collectionName": "groups_price_limits",
+  "attributes": {
+    "limit": {
+      "type": "integer"
+    },
+    "price": {
+      "type": "decimal"
+    }
+  }
+}

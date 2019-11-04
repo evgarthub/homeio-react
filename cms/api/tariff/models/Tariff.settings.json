@@ -1,0 +1,33 @@
+{
+  "connection": "default",
+  "collectionName": "tariffs",
+  "info": {
+    "name": "tariff",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": [
+      "created_at",
+      "updated_at"
+    ],
+    "comment": ""
+  },
+  "attributes": {
+    "startDate": {
+      "type": "date"
+    },
+    "Cost": {
+      "group": "price_limit",
+      "repeatable": true,
+      "type": "group"
+    },
+    "source": {
+      "type": "string"
+    },
+    "type": {
+      "model": "type",
+      "via": "tariffs"
+    }
+  }
+}
