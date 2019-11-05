@@ -1,6 +1,6 @@
 
 export interface Type {
-    title: string;
+    title: TypeNames;
     color?: string;
     provider?: string;
     displayName?: string;
@@ -26,4 +26,11 @@ export interface Tariff {
 export interface CostGroup {
     limit: number;
     price: number;
+}
+
+export enum TypeNames {
+    WATER = 'water',
+    ELECTRICITY = 'electricity',
+    MAINTENANCE = 'maintenance',
+    HEAT = 'heat',
 }

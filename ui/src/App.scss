@@ -1,3 +1,24 @@
+@import './scss/index.scss';
+
+:global {
+  --var-clr-blue-dark: $clr-blue-dark;
+  --var-clr-blue: $clr-blue;
+  --var-clr-blue-light: $clr-blue-light;
+  
+  --var-clr-purple: $clr-purple;
+  --var-clr-purple-light: $clr-purple-light;
+  
+  --var-clr-red: $clr-red;
+  --var-clr-red-light: $clr-red-light;
+  
+  --var-clr-grey: $clr-grey;
+  --var-clr-grey-light: $clr-grey-light;
+  
+  --var-clr-white: $clr-white;
+  --var-clr-black: $clr-black;
+}
+
+
 .App {
   text-align: center;
 }
