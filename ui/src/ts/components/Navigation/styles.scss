@@ -1,0 +1,50 @@
+@import '../../../scss/index.scss';
+
+.nav {
+    padding: 20px 0 20px 30px;
+
+    &__container {
+        display: flex;
+        flex-direction: column;
+        justify-content: stretch;
+    }
+
+    &__item {
+        display: flex;
+        background-color: #FFFFFF;
+        padding-right: 30px;
+        text-decoration: none;
+        color: $clr-grey;
+
+        & + & {
+            margin-top: 10px;
+        }
+
+        
+        &--active {
+            box-shadow: 2px 0 0 0 $clr-blue-light;
+            font-weight: bold;
+            color: $clr-black;
+
+            .nav__icon {
+                color: $clr-blue-light;
+            }
+        }
+    }
+    
+    &__title {
+        margin-left: 30px;
+    }
+
+    @media screen and (max-width: 900px) {
+        padding: 20px 0 20px 20px;
+
+        &__item {
+            padding-right: 10px;
+        }
+
+        &__title {
+            display: none;
+        }
+    }
+}

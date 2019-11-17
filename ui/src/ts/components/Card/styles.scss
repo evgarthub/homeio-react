@@ -2,8 +2,8 @@
 
 .card {
     background-color: $clr-white;
-    border-radius: 16px;
-    padding: 16px;
+    border-radius: 12px;
+    padding: 12px;
     margin: 5px;
     color: $clr-global-dark;
 
@@ -24,6 +24,20 @@
     }
 
     &--transparent {
-        background-color: rgba($clr-red, 0.7);
+        &.card--color {
+            &-white {
+                background-color: rgba($clr-white, 0.2);
+            }
+    
+            &-red {
+                background-color: rgba($clr-red, 0.2);
+                color: $clr-white;
+            }
+    
+            &-blue {
+                background-color: rgba($clr-blue-light, 0.2);
+                color: $clr-white;
+            }
+        }
     }
 }

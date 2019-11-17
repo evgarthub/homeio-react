@@ -1,0 +1,21 @@
+.records-page {
+    display: block;
+    overflow-y: auto;
+    height: 100%;
+}
+
+.record-card {
+    display: flex;
+    align-items: center;
+  
+    &__icon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  
+    &__content {
+      margin-left: 15px;
+    }
+}
+  

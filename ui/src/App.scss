@@ -18,26 +18,42 @@
   --var-clr-black: $clr-black;
 }
 
-
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.layout {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+  height: 100vh;
+  background-color: $clr-white;
 
-.App-link {
-  color: #09d3ac;
+  &__left {
+    height: 100%;
+    box-shadow: 2px 0 0 0 $clr-grey-light;
+    z-index: 2;
+  }
+
+  &__center {
+    flex-grow: 1;
+    background-color: $clr-background;
+    z-index: 1;
+    padding: 50px 30px;
+  }
+
+  &__logo {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+
+  &__title {
+    flex-grow: 1;
+    font-weight: bold;
+    font-size: 18px;
+  }
+
+  &__date {
+    color: $clr-grey;
+  }
 }

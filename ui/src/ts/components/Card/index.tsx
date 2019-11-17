@@ -2,9 +2,11 @@ import * as React from 'react';
 import './styles.scss';
 
 interface CardProps {
-    children: React.ReactChild[];
+    children: React.ReactNode;
     color?: 'white' | 'red' | 'blue' | 'violet' | 'violet-light' | 'red-light' | 'grey';
     isTransparent?: boolean;
+    className?: string;
+    title?: string;
 }
 
 export const Card = (props: CardProps) => {
@@ -12,10 +14,12 @@ export const Card = (props: CardProps) => {
         color = 'white',
         children,
         isTransparent,
+        className,
+        title,
     } = props;
     
     return (
-        <section className={`card card--color-${color} ${isTransparent ? 'card--transparent' : ''}`} >
+        <section className={`card card--color-${color} ${isTransparent ? 'card--transparent' : ''} ${className}`} title={title} >
             {children}
         </section>
     );
