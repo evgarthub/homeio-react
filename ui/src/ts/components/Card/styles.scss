@@ -21,6 +21,11 @@
             background-color: $clr-blue-light;
             color: $clr-white;
         }
+
+        &-grey {
+            background-color: $clr-grey;
+            color: $clr-white;
+        }
     }
 
     &--transparent {
@@ -37,6 +42,11 @@
             &-blue {
                 background-color: rgba($clr-blue-light, 0.2);
                 color: $clr-white;
+            }
+
+            &-grey {
+                background-color: rgba($clr-grey, 0.2);
+                color: $clr-black;
             }
         }
     }
