@@ -11,23 +11,20 @@
   },
   "devDependencies": {},
   "dependencies": {
-    "knex": "latest",
-    "sqlite3": "latest",
-    "strapi": "3.0.0-beta.17.5",
-    "strapi-admin": "3.0.0-beta.17.5",
-    "strapi-hook-bookshelf": "3.0.0-beta.17.5",
-    "strapi-hook-knex": "3.0.0-beta.17.5",
-    "strapi-plugin-content-manager": "3.0.0-beta.17.5",
-    "strapi-plugin-content-type-builder": "3.0.0-beta.17.5",
-    "strapi-plugin-documentation": "3.0.0-beta.17.5",
-    "strapi-plugin-email": "3.0.0-beta.17.5",
-    "strapi-plugin-graphql": "3.0.0-beta.17.5",
-    "strapi-plugin-upload": "3.0.0-beta.17.5",
-    "strapi-plugin-users-permissions": "3.0.0-beta.17.5",
-    "strapi-utils": "3.0.0-beta.17.5"
+    "strapi": "3.0.0-beta.18.2",
+    "strapi-admin": "3.0.0-beta.18.2",
+    "strapi-utils": "3.0.0-beta.18.2",
+    "strapi-plugin-content-type-builder": "3.0.0-beta.18.2",
+    "strapi-plugin-content-manager": "3.0.0-beta.18.2",
+    "strapi-plugin-users-permissions": "3.0.0-beta.18.2",
+    "strapi-plugin-email": "3.0.0-beta.18.2",
+    "strapi-plugin-upload": "3.0.0-beta.18.2",
+    "strapi-connector-bookshelf": "3.0.0-beta.18.2",
+    "knex": "<0.20.0",
+    "sqlite3": "latest"
   },
   "author": {
-    "name": "A Strapi developer"
+    "name": "Yevhen Kifiak"
   },
   "strapi": {
     "uuid": "999be28e-5c6d-4a2a-9166-a4f819a7e7ea"
