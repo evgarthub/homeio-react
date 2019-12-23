@@ -33,6 +33,24 @@
   
     &__content {
       margin-left: 15px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    &__value {
+        margin-top: 5px;
+    }
+
+    &__action {
+        & + & {
+            margin-left: 10px;
+        }
+
+        &s {
+            display: flex;
+        }
     }
 }
   

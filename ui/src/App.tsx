@@ -1,4 +1,5 @@
 import * as React from 'react';
+import 'antd/dist/antd.css';
 import './App.scss';
 import { NavItem, Navigation } from './ts/components/Navigation';
 import { Home, List } from 'react-feather';
@@ -35,7 +36,7 @@ const App = () => {
         <div className='layout__center'>
           <header className='layout__header'>
             <div className='layout__title'>{currentTitle}</div>
-            <div className='layout__date'>{today}</div>
+            <div className='layout__date'>clock</div>
           </header>
           <Switch>
             <Route path='/records' component={RecordsPage} />

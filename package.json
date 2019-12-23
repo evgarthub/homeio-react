@@ -19,5 +19,7 @@
   "bugs": {
     "url": "https://github.com/evgarthub/homeio-react/issues"
   },
-  "homepage": "https://github.com/evgarthub/homeio-react#readme"
+  "homepage": "https://github.com/evgarthub/homeio-react#readme",
+  "dependencies": {
+  }
 }
