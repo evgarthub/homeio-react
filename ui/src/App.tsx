@@ -36,7 +36,7 @@ const App = () => {
         <div className='layout__center'>
           <header className='layout__header'>
             <div className='layout__title'>{currentTitle}</div>
-            <div className='layout__date'>clock</div>
+            <div className='layout__date'>{today.toString()}</div>
           </header>
           <Switch>
             <Route path='/records' component={RecordsPage} />

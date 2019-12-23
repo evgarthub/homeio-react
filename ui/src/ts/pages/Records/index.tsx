@@ -5,8 +5,8 @@ import { AxiosResponse } from 'axios';
 import { Card, Loading } from '../../components';
 import { formatDate, getTypeIcon } from '../../utils';
 import './styles.scss';
-import { Droplet, Zap, Thermometer, Home, Plus, HelpCircle, Check, Crosshair, X, Edit } from 'react-feather';
-import { DatePicker, InputNumber, Select, Button, Icon } from 'antd';
+import { Droplet, Zap, Thermometer, Home, Check, X, Edit } from 'react-feather';
+import { DatePicker, InputNumber, Select, Button } from 'antd';
 import moment, { Moment } from 'moment';
 
 export const RecordsPage = () => {
@@ -73,23 +73,16 @@ export const RecordsPage = () => {
                             readonly={false}
                         />
                     ))}
-                    {records && records.map((record: Record, i: number) => {
-                        const Icon = getTypeIcon(record.type.title);
-
-                        return (
-                            <Card className='record-card' key={`${record.value}-${record.date}-${i}`} color='red' >
-                                <Card color='white' isTransparent={true} title={record.type.displayName}>
-                                    <div className='record-card__icon'>
-                                    {Icon}
-                                    </div>
-                                </Card>
-                                <div className='record-card__content'>
-                                    <span>{formatDate(record.date)}</span>
-                                    <span>{record.value} {record.type.unit}</span>
-                                </div>
-                            </Card>
-                        );
-                    })}
+                    {records && records.map((record: Record, i: number) => (
+                        <RecordRow
+                            key={`${record.value}-${record.date}-${i}`}
+                            index={i}
+                            record={record}
+                            onChange={handleChange}
+                            onCancel={handleCancel}
+                            readonly={true}
+                        />
+                    ))}
                 </div>
             </div>
         );
@@ -187,7 +180,7 @@ const RecordRow = (props: RecordRowProps) => {
                     ? <span>{formatDate(props.record.date)}</span>
                     : (
                         <DatePicker
-                            defaultValue={moment(new Date, dateFormat)}
+                            defaultValue={moment(new Date(), dateFormat)}
                             value={moment(localValue.date, dateFormat)}
                             onChange={handleDateChange}
                             allowClear={false}
