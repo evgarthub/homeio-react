@@ -1,25 +1,23 @@
 import * as React from 'react';
-import recordsService from '../../../api/services/Records';
 import { Record, TypeNames } from '../../../api/models';
-import { AxiosResponse } from 'axios';
 import { Card, Loading } from '../../components';
 import { formatDate, getTypeIcon } from '../../utils';
 import './styles.scss';
 import { Droplet, Zap, Thermometer, Home, Check, X, Edit } from 'react-feather';
 import { DatePicker, InputNumber, Select, Button } from 'antd';
 import moment, { Moment } from 'moment';
+import { useSelector } from 'react-redux';
+import { fetchRecords } from '../../store/storage/records/thunk';
+import { useDispatchOnMount } from '../../utils/storeHelpers';
+import { selectRecords } from '../../store/storage/records/selectors';
+import { fetchTypes } from '../../store/storage/types/thunk';
 
 export const RecordsPage = () => {
-    const [records, setRecords] = React.useState<Record[]>();
+    const records = useSelector(selectRecords);
     const [newRecords, setNewRecord] = React.useState<Record[]>();
     
-
-    React.useEffect(() => {
-        recordsService.get()
-            .then((resp: AxiosResponse<Record[]>) => {
-                setRecords(resp.data);
-            })
-    }, []);
+    useDispatchOnMount(fetchRecords());
+    useDispatchOnMount(fetchTypes());
 
     const handleAddNew = () => {
         setNewRecord([
@@ -48,7 +46,7 @@ export const RecordsPage = () => {
         setNewRecord(updatedRecords);
     };
     
-    if (records) {
+    if (records && records.length) {
         return (
             <div className='records-page'>
                 <div className='records-page__header'>
