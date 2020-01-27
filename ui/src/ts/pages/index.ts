@@ -1,5 +1,2 @@
-import { RecordsPage } from "./Records";
-
-export {
-    RecordsPage,
-}
+export { RecordsPage } from "./Records";
+export { Dashboard } from './Dashboard';

@@ -1,3 +1,3 @@
 import { State } from "../../interfaces";
 
-export const selectTypes = (state: State) => state.storage.tariffs;
+export const selectTariffs = (state: State) => state.storage.tariffs;

@@ -1,13 +1,6 @@
-import { Card } from './Card';
-import { Navigation } from './Navigation';
-import { TitleWithIcon } from './TitleWithIcon';
-import { Button } from './Button';
-import { Loading } from './Loading';
-
-export {
-    Card,
-    Navigation,
-    TitleWithIcon,
-    Button,
-    Loading
-}
+export { Card } from './Card';
+export { Navigation } from './Navigation';
+export { TitleWithIcon } from './TitleWithIcon';
+export { Button } from './Button';
+export { Loading } from './Loading';
+export { Clock } from './Clock';

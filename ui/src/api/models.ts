@@ -8,12 +8,14 @@ export interface Type {
     isAbsolute?: boolean;
     records?: any[];
     tariffs?: any[];
+    id: number;
 }
 
 export interface Record {
     value: number;
     date: Date;
     type: Type;
+    id?: number;
 }
 
 export interface Tariff {

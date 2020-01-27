@@ -9,12 +9,7 @@ export const typesReducer = (state: TypesState | undefined, action: Action): Typ
 
     switch (action.type) {
         case PUSH_TYPES:
-            const types = (action as PushTypesAction).payload;
-
-            return [
-                ...state,
-                ...types,
-            ]
+            return (action as PushTypesAction).payload;
 
         default:
             return state;

@@ -23,7 +23,7 @@ export const put = (id: number, data: Record): Promise<AxiosResponse<Record>> =>
 }
 
 export const remove = (id: number): Promise<AxiosResponse<Record>> => {
-    const requestUrl = `${BASE_PATH}${RECORDS}/${id}`;
+    const requestUrl = `${BASE_PATH}${RECORDS}${id}`;
     return axios.delete(requestUrl);
 }
 
