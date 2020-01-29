@@ -1,6 +1,6 @@
-import { RecordsState } from "./interfaces";
 import { Action } from "redux";
-import { PUSH_RECORDS, PushRecordsAction, PUSH_RECORD, PushRecordAction, UPDATE_RECORD, UpdateRecordAction, DELETE_RECORD, DeleteRecordAction } from "./actions";
+import { DeleteRecordAction, DELETE_RECORD, PushRecordAction, PushRecordsAction, PUSH_RECORD, PUSH_RECORDS, SET_RECORDS, UpdateRecordAction, UPDATE_RECORD } from "./actions";
+import { RecordsState } from "./interfaces";
 
 export const recordsReducer = (state: RecordsState | undefined, action: Action): RecordsState => {
     if (!state) {
@@ -8,12 +8,17 @@ export const recordsReducer = (state: RecordsState | undefined, action: Action):
     }
 
     switch (action.type) {
-        case PUSH_RECORDS:
+        case SET_RECORDS:
             const records = (action as PushRecordsAction).payload;
+
+            return records;
+
+        case PUSH_RECORDS:
+            const addedRecords = (action as PushRecordsAction).payload;
 
             return [
                 ...state,
-                ...records,
+                ...addedRecords,
             ];
 
         case PUSH_RECORD:

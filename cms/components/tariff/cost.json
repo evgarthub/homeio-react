@@ -1,0 +1,17 @@
+{
+  "info": {
+    "name": "Cost",
+    "icon": "pound-sign"
+  },
+  "options": {},
+  "attributes": {
+    "value": {
+      "type": "decimal"
+    },
+    "limit": {
+      "type": "float"
+    }
+  },
+  "connection": "default",
+  "collectionName": "components_tariff_costs"
+}

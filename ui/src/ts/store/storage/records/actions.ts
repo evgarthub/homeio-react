@@ -16,3 +16,7 @@ export type UpdateRecordAction = ReturnType<typeof updateRecord>;
 export const DELETE_RECORD = '@api/DELETE_RECORD';
 export const deleteRecord = (id: number) => createAction(DELETE_RECORD, id);
 export type DeleteRecordAction = ReturnType<typeof deleteRecord>;
+
+export const SET_RECORDS = '@api/SET_RECORDS';
+export const setRecords = (records: Record[]) => createAction(SET_RECORDS, records);
+export type SetRecordsAction = ReturnType<typeof setRecords>;

@@ -7,11 +7,11 @@ import './styles.scss';
 import { selectRecords } from '../../store/storage/records/selectors';
 import { selectTariffs } from '../../store/storage/tariffs/selectors';
 import { getMonthName } from '../../utils/dataFormatter';
-import { Record, Tariff } from '../../../api';
+import { Record, Tariff, CostGroup } from '../../../api';
 import { Props } from 'react-feather';
 
 interface MonthTypeBill {
-    amount: number;
+    cost: number;
     value: number;
     icon: React.ComponentType<Props>;
     displayName?: string;
@@ -23,7 +23,7 @@ export const Dashboard = () => {
     const records = useSelector(selectRecords);
     const tariffs = useSelector(selectTariffs);
     const today = new Date();
-    const [total, setTotal] = React.useState<number>(0);
+    let total = 0;
     const get2LastRecords = (typeId: number, _records: Record[]): Record[] => {
         const last2Records = _records
         .filter(item => item.type.id === typeId)
@@ -31,14 +31,44 @@ export const Dashboard = () => {
 
         return [last2Records[0], last2Records[1]];
     };
+    
+    const addToTotal = (added: number) => {
+        if (added > 0) {
+            total += added;
+        }
+    };
 
-    const calcMonthBill = (last2Records: Record[], _tariffs: Tariff[]): number => {
+    const calcMonthBill = (last2Records: Record[], _tariffs: Tariff[], isAbsolute?: boolean): number => {
         const tariff = tariffs.find(item => item.type.id === last2Records[0].type.id);
         const diff = last2Records[0].value - last2Records[1].value;
-        const amount = diff * tariff!.cost[0].price;
+        let tariffPrice = 0;
+        let cost = 0;
 
-        addToTotal(amount);
-        return amount;
+        if (tariff && tariff.costs && tariff.costs.length) {
+            tariffPrice = tariff && tariff.costs[0].value;
+            cost = diff * tariffPrice;
+
+            if (tariff.costs.length > 1) {
+                let _diff = diff;
+                cost = tariff.costs.reduce((acc: number, item: CostGroup) => {
+                    if (item.limit) {
+                        _diff -= item.limit;
+                        return acc + item.limit * item.value;
+                    }
+
+                    return acc + _diff * item.value;
+                }, 0);
+            }
+
+
+            if (isAbsolute) {
+                cost = last2Records[0].value * tariffPrice;
+            }
+        }
+
+
+        addToTotal(cost);
+        return cost;
     };
 
     const typeBills: MonthTypeBill[] | null = React.useMemo(() => {
@@ -48,11 +78,11 @@ export const Dashboard = () => {
                 const icon = getTypeIcon(title);
                 
                 const lastRecords = get2LastRecords(id, records);
-                const amount = calcMonthBill(lastRecords, tariffs);
+                const cost = calcMonthBill(lastRecords, tariffs, item.isAbsolute);
                 
                 return {
                     value: lastRecords && lastRecords[0] && lastRecords[0].value,
-                    amount,
+                    cost,
                     displayName,
                     unit,
                     icon,
@@ -62,13 +92,11 @@ export const Dashboard = () => {
         return null;
     }, [types.length, records.length, tariffs.length]);
 
-    const addToTotal = (added: number) => added > 0 && setTotal(total + added);
-
     return (
         <section className="month">
             <Card>
                 <header className="month__header">
-                    <div className="month__total">{total}</div>
+                    <div className="month__total">{total.toFixed(2)} грн</div>
                     <div className="month__name">{getMonthName(today)}</div>
                 </header>
                 <div className="month__highlights">
@@ -79,6 +107,8 @@ export const Dashboard = () => {
                             <div key={i} className="month__type">
                                 <div>{item.displayName}</div>
                                 <div><Icon size={40} /></div>
+                                <div>{item.value} {item.unit}</div>
+                                <div>{item.cost.toFixed(2)} грн</div>
                             </div>
                         );
                     })}

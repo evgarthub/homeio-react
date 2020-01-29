@@ -22,12 +22,12 @@ export interface Tariff {
     source?: string;
     startDate: Date;
     type: Type;
-    cost: CostGroup[];
+    costs: CostGroup[];
 }
 
 export interface CostGroup {
     limit: number;
-    price: number;
+    value: number;
 }
 
 export enum TypeNames {

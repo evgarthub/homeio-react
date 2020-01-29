@@ -87,12 +87,13 @@ export const RecordsPage = () => {
                             const onFilter = () => handleFilter(item);
 
                             return (
-                                <button 
+                                <button
                                     className={`records-page__filter${filter && filter.length && filter.includes(item.title)
                                         ? ' records-page__filter--active' : ''}`}
                                     onClick={onFilter}
+                                    key={item.title}
                                 >
-                                    <Card key={item.title} color='white' title={item.displayName}><Icon /></Card>
+                                    <Card color='white' title={item.displayName}><Icon /></Card>
                                 </button>
                             );
                         })}

@@ -17,17 +17,17 @@
     "startDate": {
       "type": "date"
     },
-    "Cost": {
-      "group": "price_limit",
-      "repeatable": true,
-      "type": "group"
-    },
     "source": {
       "type": "string"
     },
     "type": {
       "model": "type",
       "via": "tariffs"
+    },
+    "costs": {
+      "type": "component",
+      "repeatable": true,
+      "component": "tariff.cost"
     }
   }
 }
