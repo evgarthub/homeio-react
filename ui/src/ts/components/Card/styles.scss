@@ -1,0 +1,52 @@
+@import '../../../scss/index.scss';
+
+.card {
+    background-color: $clr-white;
+    border-radius: 12px;
+    padding: 12px;
+    color: $clr-global-dark;
+
+    &--color {
+        &-white {
+            background-color: $clr-white;
+        }
+
+        &-red {
+            background-color: $clr-red;
+            color: $clr-white;
+        }
+
+        &-blue {
+            background-color: $clr-blue-light;
+            color: $clr-white;
+        }
+
+        &-grey {
+            background-color: $clr-grey;
+            color: $clr-white;
+        }
+    }
+
+    &--transparent {
+        &.card--color {
+            &-white {
+                background-color: rgba($clr-white, 0.2);
+            }
+    
+            &-red {
+                background-color: rgba($clr-red, 0.2);
+                color: $clr-white;
+            }
+    
+            &-blue {
+                background-color: rgba($clr-blue-light, 0.2);
+                color: $clr-white;
+            }
+
+            &-grey {
+                background-color: rgba($clr-grey, 0.2);
+                color: $clr-black;
+            }
+        }
+    }
+}

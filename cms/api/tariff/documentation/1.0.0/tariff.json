@@ -170,7 +170,10 @@
             "required": false,
             "description": "Get records that matches any value in the array of values",
             "schema": {
-              "type": "array"
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
             },
             "deprecated": false
           },
@@ -180,7 +183,10 @@
             "required": false,
             "description": "Get records that doesn't match any value in the array of values",
             "schema": {
-              "type": "array"
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
             },
             "deprecated": false
           }
@@ -519,26 +525,6 @@
           "startDate": {
             "type": "string"
           },
-          "Cost": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": [
-                "id"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "limit": {
-                  "type": "integer"
-                },
-                "price": {
-                  "type": "number"
-                }
-              }
-            }
-          },
           "source": {
             "type": "string"
           },
@@ -582,15 +568,8 @@
                 "type": "boolean"
               }
             }
-          }
-        }
-      },
-      "NewTariff": {
-        "properties": {
-          "startDate": {
-            "type": "string"
           },
-          "Cost": {
+          "costs": {
             "type": "array",
             "items": {
               "type": "object",
@@ -601,20 +580,47 @@
                 "id": {
                   "type": "string"
                 },
-                "limit": {
-                  "type": "integer"
+                "value": {
+                  "type": "number"
                 },
-                "price": {
+                "limit": {
                   "type": "number"
                 }
               }
             }
+          }
+        }
+      },
+      "NewTariff": {
+        "properties": {
+          "startDate": {
+            "type": "string"
           },
           "source": {
             "type": "string"
           },
           "type": {
             "type": "string"
+          },
+          "costs": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "value": {
+                  "type": "number"
+                },
+                "limit": {
+                  "type": "number"
+                }
+              }
+            }
           }
         }
       }

@@ -2,7 +2,7 @@ import axios, { AxiosResponse } from 'axios';
 import { Type } from '../models';
 import { BASE_PATH, TYPES } from '../base';
 
-export const get = (): Promise<AxiosResponse<Type>> => {
+export const get = (): Promise<AxiosResponse<Type[]>> => {
     const requestUrl = `${BASE_PATH}${TYPES}`;
     return axios.get(requestUrl);
 }

@@ -33,8 +33,8 @@
       "type": "string"
     },
     "tariffs": {
-      "collection": "tariff",
-      "via": "type"
+      "via": "type",
+      "collection": "tariff"
     },
     "unit": {
       "type": "string"

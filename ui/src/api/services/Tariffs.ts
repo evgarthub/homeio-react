@@ -2,7 +2,7 @@ import axios, { AxiosResponse } from 'axios';
 import { Tariff } from '../models';
 import { BASE_PATH, TARIFFS } from '../base';
 
-export const get = (): Promise<AxiosResponse<Tariff>> => {
+export const get = (): Promise<AxiosResponse<Tariff[]>> => {
     const requestUrl = `${BASE_PATH}${TARIFFS}`;
     return axios.get(requestUrl);
 }

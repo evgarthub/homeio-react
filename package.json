@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "./cms stapi develop && ./ui npm start",
+    "generate": "openapi ./cms/extensions/documentation/documentation/1.0.0/full_documentation.json ./api-client"
   },
   "repository": {
     "type": "git",
@@ -18,5 +20,6 @@
   "bugs": {
     "url": "https://github.com/evgarthub/homeio-react/issues"
   },
-  "homepage": "https://github.com/evgarthub/homeio-react#readme"
+  "homepage": "https://github.com/evgarthub/homeio-react#readme",
+  "dependencies": {}
 }
