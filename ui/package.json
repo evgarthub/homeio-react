@@ -11,7 +11,7 @@
     "@types/redux": "^3.6.0",
     "antd": "^3.26.6",
     "moment": "^2.24.0",
-    "node-sass": "^4.13.0",
+    "node-sass": "^7.0.0",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
     "react-feather": "^2.0.3",
