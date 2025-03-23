@@ -1,0 +1,40 @@
+@use "../../scss/colors";
+
+.records-page {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  &__list {
+    overflow-y: auto;
+    padding-right: 10px;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__filters {
+    display: flex;
+    padding-bottom: 10px;
+  }
+
+  &__filter {
+    padding: 0;
+    margin: 0;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    border-radius: 12px;
+    transition: box-shadow ease-in-out 0.2s;
+
+    & + & {
+      margin-left: 10px;
+    }
+
+    &--active {
+      box-shadow: 0 0 0 2px colors.$clr-red;
+    }
+  }
+}

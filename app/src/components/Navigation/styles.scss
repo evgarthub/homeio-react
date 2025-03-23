@@ -1,0 +1,49 @@
+@use "../../scss/colors";
+
+.nav {
+  padding: 20px 0 20px 30px;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+  }
+
+  &__item {
+    display: flex;
+    background-color: #ffffff;
+    padding-right: 30px;
+    text-decoration: none;
+    color: colors.$clr-grey;
+
+    & + & {
+      margin-top: 10px;
+    }
+
+    &--active {
+      box-shadow: 2px 0 0 0 colors.$clr-blue-light;
+      font-weight: bold;
+      color: colors.$clr-black;
+
+      .nav__icon {
+        color: colors.$clr-blue-light;
+      }
+    }
+  }
+
+  &__title {
+    margin-left: 30px;
+  }
+
+  @media screen and (max-width: 900px) {
+    padding: 20px 0 20px 20px;
+
+    &__item {
+      padding-right: 10px;
+    }
+
+    &__title {
+      display: none;
+    }
+  }
+}
