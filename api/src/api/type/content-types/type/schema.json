@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "types",
+  "info": {
+    "singularName": "type",
+    "pluralName": "types",
+    "displayName": "Type",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "color": {
+      "type": "string"
+    },
+    "provider": {
+      "type": "string"
+    },
+    "displayName": {
+      "type": "string"
+    },
+    "unit": {
+      "type": "string",
+      "required": true
+    },
+    "isAbsolute": {
+      "type": "boolean",
+      "default": false
+    },
+    "records": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::record.record",
+      "mappedBy": "type"
+    }
+  }
+}

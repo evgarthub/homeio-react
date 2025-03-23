@@ -1,0 +1,52 @@
+@use "../../scss/colors";
+
+.card {
+  background-color: colors.$clr-white;
+  border-radius: 12px;
+  padding: 12px;
+  color: colors.$clr-black;
+
+  &--color {
+    &-white {
+      background-color: colors.$clr-white;
+    }
+
+    &-red {
+      background-color: colors.$clr-red;
+      color: colors.$clr-white;
+    }
+
+    &-blue {
+      background-color: colors.$clr-blue-light;
+      color: colors.$clr-white;
+    }
+
+    &-grey {
+      background-color: colors.$clr-grey;
+      color: colors.$clr-white;
+    }
+  }
+
+  &--transparent {
+    &.card--color {
+      &-white {
+        background-color: rgba(colors.$clr-white, 0.2);
+      }
+
+      &-red {
+        background-color: rgba(colors.$clr-red, 0.2);
+        color: colors.$clr-white;
+      }
+
+      &-blue {
+        background-color: rgba(colors.$clr-blue-light, 0.2);
+        color: colors.$clr-white;
+      }
+
+      &-grey {
+        background-color: rgba(colors.$clr-grey, 0.2);
+        color: colors.$clr-black;
+      }
+    }
+  }
+}

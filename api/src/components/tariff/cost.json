@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_tariff_costs",
+  "info": {
+    "displayName": "cost",
+    "icon": "book",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "value": {
+      "type": "decimal",
+      "required": true
+    },
+    "limit": {
+      "type": "decimal"
+    }
+  }
+}

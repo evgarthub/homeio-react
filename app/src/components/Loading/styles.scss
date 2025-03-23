@@ -1,0 +1,30 @@
+.loading {
+    position: relative;
+    
+    &__container {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+    }
+
+    &__indicator {
+        animation-name: rotating;
+        animation-duration: 1s;
+        animation-timing-function: ease-in-out;
+        animation-iteration-count: infinite;
+    }
+
+    &__title {
+        margin-top: 15px;
+    }
+}
+
+@keyframes rotating {
+    from {
+        transform: rotate(0);
+    }
+
+    to {
+        transform: rotate(179deg);
+    }
+}
