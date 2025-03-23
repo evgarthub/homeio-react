@@ -6,6 +6,13 @@ import { Card } from "../../../components";
 import { Check, X, Edit, Trash } from "react-feather";
 import "./styles.scss";
 import { useTypesQuery } from "../../../queries/useTypesQuery";
+import { useUpdateRecordMutation } from "../../../queries/useUpdateRecordMutation";
+import { useDeleteRecordMutation } from "../../../queries/useDeleteRecordMutation";
+import dateFnsGenerateConfig from "rc-picker/lib/generate/dateFns";
+
+const DateFnsDatePicker = DatePicker.generatePicker<Date>(
+  dateFnsGenerateConfig
+);
 
 interface RecordRowProps {
   index: number;
@@ -24,17 +31,13 @@ export const RecordRow = (props: RecordRowProps) => {
 
   const Icon = getTypeIcon(props.record.type.title);
 
-  const handleSave = () => {
-    // dispatch(postRecord(localValue));
-    props.onCancel(props.index);
-  };
+  const { mutateAsync: updateRecord } = useUpdateRecordMutation();
+  const { mutateAsync: deleteRecord } = useDeleteRecordMutation();
+
   const handleUpdate = () => {
-    // dispatch(putRecord(localValue));
+    updateRecord(localValue);
   };
-  const handleChange = () => {
-    props.onChange(props.index, localValue);
-    setReadOnly(true);
-  };
+
   const handleCancel = () => {
     props.onCancel(props.index);
     setReadOnly(true);
@@ -71,7 +74,9 @@ export const RecordRow = (props: RecordRowProps) => {
   };
 
   const handleDelete = () => {
-    // dispatch(removeRecord(localValue.id));
+    if (!localValue.id) return;
+
+    deleteRecord(localValue.id);
   };
 
   return (
@@ -105,7 +110,7 @@ export const RecordRow = (props: RecordRowProps) => {
         {readonly ? (
           <span>{formatDate(props.record.date)}</span>
         ) : (
-          <DatePicker
+          <DateFnsDatePicker
             defaultValue={new Date()}
             value={localValue.date}
             onChange={handleDateChange}
@@ -156,7 +161,7 @@ export const RecordRow = (props: RecordRowProps) => {
             <Button
               className="record-card__action"
               type="primary"
-              onClick={localValue.id ? handleUpdate : handleSave}
+              onClick={handleUpdate}
               title="Save record"
             >
               <Check />
